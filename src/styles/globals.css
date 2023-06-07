@@ -1,27 +1,244 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* green color: #78BE20 */
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+    font-family: "Futura Cond Bold";
+    src: url(../../public/fonts/futura-pt-cond-bold.ttf);
+}
+@font-face {
+    font-family: "Roboto Black";
+    src: url(../../public/fonts/Roboto-Black.ttf);
+}
+@font-face {
+    font-family: "Roboto Black Itlaic";
+    src: url(../../public/fonts/Roboto-BlackItalic.ttf);
+}
+@font-face {
+    font-family: "Roboto Bold";
+    src: url(../../public/fonts/Roboto-Bold.ttf);
+}
+@font-face {
+    font-family: "Roboto Bold Italic";
+    src: url(../../public/fonts/Roboto-BoldItalic.ttf);
+}
+@font-face {
+    font-family: "Roboto Italic";
+    src: url(../../public/fonts/Roboto-Italic.ttf);
+}
+@font-face {
+    font-family: "Roboto Light";
+    src: url(../../public/fonts/Roboto-Light.ttf);
+}
+@font-face {
+    font-family: "Roboto Light Italic";
+    src: url(../../public/fonts/Roboto-LightItalic.ttf);
+}
+@font-face {
+    font-family: "Roboto Medium";
+    src: url(../../public/fonts/Roboto-Medium.ttf);
+}
+@font-face {
+    font-family: "Roboto Medium Italic";
+    src: url(../../public/fonts/Roboto-MediumItalic.ttf);
+}
+@font-face {
+    font-family: "Roboto Regular";
+    src: url(../../public/fonts/Roboto-Regular.ttf);
+}
+@font-face {
+    font-family: "Roboto Thin";
+    src: url(../../public/fonts/Roboto-Thin.ttf);
+}
+@font-face {
+    font-family: "Roboto Thin Italic";
+    src: url(../../public/fonts/Roboto-ThinItalic.ttf);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html,
+input[type=text],
+select,
+input[type=number],
+button,
+textarea,
+input[type=file],
+input {
+    font-family: 'Roboto Regular';
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    margin: 0;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.main-screen {
+    width: 100%;
+    height: 100vh;
+    max-height: none;
+    background-color: white;
+    color: black;
+    font-size: x-large;
+}
+
+button {
+    background-color: #78BE20;
+    border-radius: 7px;
+    border: none;
+    font-size: large;
+    max-width: fit-content;
+    padding:1% 5% 1% 5%;
+    margin: auto;
+    margin-top: 2%;
+    
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #82ce25;
+}
+
+button:disabled:hover {
+    background-color: #78BE20;
+    cursor: default;
+}
+
+/* NAVIGATION BAR */
+.nav-bar {
+    display: flex;
+    background-color: #78BE20;
+    height: 10vh;
+    font-size: 0.90em;
+    margin-bottom: 2%;
+    font-family: 'Futura Cond Bold';
+
+}
+
+.nav-items {
+    text-align: center;
+    display: flex;
+    width: 100%;
+    font-size: x-large;
+    justify-content: right;
+}
+
+.nav-item {
+    margin: auto;
+    width: fit-content;
+    white-space: nowrap;
+    padding: 0 5% 0 5%;
+}
+
+.main-link {
+    padding-left: 10%;
+    font-size: xx-large;
+    text-align: left;
+    margin: auto 0 auto 0;
+}
+
+/* MAIN PAGE*/
+
+.show-more {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+.show-more-row {
+    background-color: #78BE20;
+}
+
+.show-more div {
+    padding-right: 2%;
+}
+
+/* FORM TEMPLATE */
+form {
+    width: 35%;
+    margin: auto;
+    display: grid;
+    gap: 2%;
+}
+
+input[type=text],
+select,
+input[type=number],
+textarea,
+input[type=file] {
+    font-size: large;
+    border: 1.25px solid black;
+    outline: none;
+}
+input[type=text]:focus,
+select:focus,
+input[type=number]:focus,
+textarea:focus {
+    border-color: #78BE20;
+}
+
+textarea {
+    resize: none;
+    height: max-content;
+}
+
+label {
+    font-size: large;
+}
+
+/* TABLE TEMPLATE */
+table, th, td, tr {
+    border-collapse: collapse;
+}
+
+table {
+    width:80%;
+    margin: auto;
+    font-size: 0.85em;
+    text-align: center;
+    border: 1px solid #78BE20;
+}
+
+
+th {
+    background-color: #78BE20;
+    color: white;
+}
+
+td,th {
+    border-right: 1.5px solid #78BE20;
+    border-bottom: 1.5px solid #78BE20;
+}
+
+td, th {
+    padding: 1% 0 1% 0;
+}
+
+.item-name {
+    text-align: left;
+    padding-left: 1%;
+}
+
+.item-more-btn {
+    font-size: x-large;
+    width: 1.25em;
+    height: 1.25em;
+    max-width: none;
+    margin: 0;
+    border-radius: 50%;
+}
+
+
+/* CREATE PAGE */
+.btn-upload {
+    width: 100%;
+    display: block;
+    margin: 5% auto;
+}
+
+.create-input-error {
+    font-size: medium;
+}
+
+.create-items {
+    font-size: medium;
 }
