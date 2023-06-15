@@ -53,6 +53,18 @@
     src: url(../../public/fonts/Roboto-ThinItalic.ttf);
 }
 
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
 html,
 input[type=text],
 select,
@@ -91,7 +103,7 @@ button {
     padding:1% 5% 1% 5%;
     margin: auto;
     margin-top: 2%;
-    
+    border: 2px solid #78BE20;
 }
 
 button:hover {
@@ -148,8 +160,18 @@ button:disabled:hover {
     background-color: #78BE20;
 }
 
+.show-more-row td {
+    vertical-align: middle;
+}
+
 .show-more div {
     padding-right: 2%;
+}
+
+.show-more .show-more-start {
+    cursor: pointer;
+    padding: 0;
+    color: black;
 }
 
 /* FORM TEMPLATE */
@@ -183,6 +205,15 @@ textarea {
 
 label {
     font-size: large;
+}
+
+.form-btn-row {
+    display: flex;
+}
+
+.form-btn-change {
+    background-color: white;
+    
 }
 
 /* TABLE TEMPLATE */
@@ -225,6 +256,12 @@ td, th {
     max-width: none;
     margin: 0;
     border-radius: 50%;
+    border: none;
+}
+
+table svg {
+    cursor: pointer;
+    margin: auto;
 }
 
 
@@ -241,4 +278,15 @@ td, th {
 
 .create-items {
     font-size: medium;
+}
+
+/* LOADING SPINNER */
+
+.loading {
+    width: 50px;
+    height: 50px;
+    border: 3px solid #78BE20;
+    border-radius: 50%;
+    border-right-color: transparent;
+    animation: rotate 1.5s infinite;
 }
