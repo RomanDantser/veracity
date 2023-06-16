@@ -4,55 +4,11 @@
     font-family: "Futura Cond Bold";
     src: url(../../public/fonts/futura-pt-cond-bold.ttf);
 }
-@font-face {
-    font-family: "Roboto Black";
-    src: url(../../public/fonts/Roboto-Black.ttf);
-}
-@font-face {
-    font-family: "Roboto Black Itlaic";
-    src: url(../../public/fonts/Roboto-BlackItalic.ttf);
-}
-@font-face {
-    font-family: "Roboto Bold";
-    src: url(../../public/fonts/Roboto-Bold.ttf);
-}
-@font-face {
-    font-family: "Roboto Bold Italic";
-    src: url(../../public/fonts/Roboto-BoldItalic.ttf);
-}
-@font-face {
-    font-family: "Roboto Italic";
-    src: url(../../public/fonts/Roboto-Italic.ttf);
-}
-@font-face {
-    font-family: "Roboto Light";
-    src: url(../../public/fonts/Roboto-Light.ttf);
-}
-@font-face {
-    font-family: "Roboto Light Italic";
-    src: url(../../public/fonts/Roboto-LightItalic.ttf);
-}
-@font-face {
-    font-family: "Roboto Medium";
-    src: url(../../public/fonts/Roboto-Medium.ttf);
-}
-@font-face {
-    font-family: "Roboto Medium Italic";
-    src: url(../../public/fonts/Roboto-MediumItalic.ttf);
-}
+
 @font-face {
     font-family: "Roboto Regular";
     src: url(../../public/fonts/Roboto-Regular.ttf);
 }
-@font-face {
-    font-family: "Roboto Thin";
-    src: url(../../public/fonts/Roboto-Thin.ttf);
-}
-@font-face {
-    font-family: "Roboto Thin Italic";
-    src: url(../../public/fonts/Roboto-ThinItalic.ttf);
-}
-
 
 @keyframes rotate {
     from {
@@ -64,7 +20,6 @@
     }
 }
 
-
 html,
 input[type=text],
 select,
@@ -72,7 +27,8 @@ input[type=number],
 button,
 textarea,
 input[type=file],
-input {
+input,
+input[type=password] {
     font-family: 'Roboto Regular';
 }
 
@@ -149,14 +105,16 @@ button:disabled:hover {
     margin: auto 0 auto 0;
 }
 
-/* MAIN PAGE*/
+/* ITEMS TABLE*/
 
 .show-more {
     display: flex;
     justify-content: center;
     color: white;
 }
-.show-more-row {
+
+.show-more-row,
+.show-more-row-info {
     background-color: #78BE20;
 }
 
@@ -164,14 +122,41 @@ button:disabled:hover {
     vertical-align: middle;
 }
 
-.show-more div {
-    padding-right: 2%;
+.show-more-row .show-more {
+    justify-content: space-around;
+    align-items: center;
 }
 
-.show-more .show-more-start {
-    cursor: pointer;
-    padding: 0;
-    color: black;
+.show-more-input label {
+    padding: 2%;
+}
+
+.show-more-input textarea {
+    border: 1.5px solid white;
+    background-color: #78BE20;
+    color: white;
+}
+.show-more-input textarea:focus {
+    border: 1.5px solid white;
+}
+
+.show-more-row-info .show-more div {
+    padding: 0 1% 0 1%;
+    border-right: 2px solid white;
+}
+
+.show-more-row-info .show-more div:last-child {
+    border: none;
+}
+
+.show-more button {
+    margin: 0;
+    border: 2px solid white;
+    color: white;
+}
+
+.show-more :disabled {
+    background-color: #a8b994;
 }
 
 /* FORM TEMPLATE */
@@ -186,7 +171,8 @@ input[type=text],
 select,
 input[type=number],
 textarea,
-input[type=file] {
+input[type=file],
+input[type=password] {
     font-size: large;
     border: 1.25px solid black;
     outline: none;
@@ -194,6 +180,7 @@ input[type=file] {
 input[type=text]:focus,
 select:focus,
 input[type=number]:focus,
+input[type=password]:focus,
 textarea:focus {
     border-color: #78BE20;
 }
@@ -289,4 +276,13 @@ table svg {
     border-radius: 50%;
     border-right-color: transparent;
     animation: rotate 1.5s infinite;
+}
+
+/* ACCESS DENIED */
+
+.access-denied {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    font-size: x-large;
 }

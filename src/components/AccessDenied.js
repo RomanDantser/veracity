@@ -4,7 +4,7 @@ export default function AccessDenied() {
     return (
         <>
             <NavBar />
-            <div className="access-denied">Доступ запрещен</div>
+            <div className="access-denied">Доступ запрещен :(</div>
         </>
     );
 }

@@ -1,8 +1,7 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import Card from "./Card";
+import Item from "./Item";
 import Loading from "./Loading";
-import { userContext } from "@/lib/userContext";
 import { AUTH_API_URL } from "@/lib/authorization";
 
 export default function ItemsTable() {
@@ -28,8 +27,48 @@ export default function ItemsTable() {
         }
     }
 
-    async function startItem() {
+    async function startItem(itemId) {
+        try {
+            const response = await fetch(`${AUTH_API_URL}/start-item`, {
+                method: 'POST',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({itemId})
+            });
 
+            const creatingResult = await response.json();
+            if(creatingResult.error) {
+                console.log(creatingResult);
+            }
+            getItems();
+
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    async function closeItem(itemId, comment) {
+        try {
+            const response = await fetch(`${AUTH_API_URL}/close-item`, {
+                method: 'POST',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({itemId, comment})
+            });
+
+            const creatingResult = await response.json();
+            if(creatingResult.error) {
+                console.log(creatingResult);
+            }
+            getItems();
+
+        } catch (err) {
+            console.error(err);
+        }
     }
 
     function onSetFilters() {
@@ -75,7 +114,7 @@ export default function ItemsTable() {
                         </tr>
                     }
                     {itemsData && itemsData.map(item => {
-                        return (<Card
+                        return (<Item
                             productId = {item.productInfo.id}
                             department = {item.productInfo.department}
                             name = {item.productInfo.name}
@@ -85,6 +124,10 @@ export default function ItemsTable() {
                             comment = {item.comment}
                             programQuantity = {item.programQuantity}
                             factQuantity = {item.factQuantity}
+                            itemId = {item._id}
+                            onCloseComment ={item.onCloseComment}
+                            startItem = {startItem}
+                            closeItem = {closeItem}
                             key = {Number(item.productInfo.id) * new Date(item.dateOfCreation)}
                             />)
                     })}

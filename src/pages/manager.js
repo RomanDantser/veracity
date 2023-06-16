@@ -4,6 +4,7 @@ import { useState, useContext } from "react";
 import NavBar from "@/components/NavBar";
 import { userContext } from "@/lib/userContext";
 import { AUTH_API_URL } from "@/lib/authorization";
+import AccessDenied from "@/components/AccessDenied";
 
 export default function ManagerPage() {
     const [file, setFile] = useState(null);
@@ -53,12 +54,7 @@ export default function ManagerPage() {
     }
 
     if(!user) {
-        return (
-            <>
-                <NavBar/>
-                <h1>Доступ запрещен</h1>
-            </>
-        );
+        return <AccessDenied/>
     }
 
     return (

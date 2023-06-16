@@ -10,7 +10,7 @@ export default function Auth() {
     const [password, setPassword] = useState('');
     const [department, setDepartment] = useState(1);
     const [subdivision, setSubdivision] = useState("Коммерция");
-    const [isSigningUp, setIsSigningUp] = useState(true);
+    const [isSigningUp, setIsSigningUp] = useState(false);
     const [inputError, setInputError] = useState(null);
 
     const { setUser } = useContext(userContext);
